@@ -30,13 +30,14 @@ class RobotService {
       "Alpha-App-Id": config.appId,
       "Alpha-App-Key": config.appKey,
       "Alpha-Nonce": config.nonce,
-      Timestamp: config.timestamp,
+      "Timestamp": config.timestamp,
       "Alpha-language": "en-US",
       "Alpha-Sign": alphaSign,
     };
   }
 
   async get(endpoint, params = {}, sn) {
+    
     const config = this.buildConfig(sn);
     const alphaSign = generateGetAlphaSign(params, config);
 
@@ -102,10 +103,10 @@ class RobotService {
 
 
     controlMovement(sn, action) {
-  if (!["stop", "forward", "right","left"].includes(action)) {
-        throw new Error("action must be 'stop', 'forward', 'right', or 'left'");
+  if (!["stop","backward",  "forward", "right","left"].includes(action)) {
+        throw new Error("action must be 'stop', 'backward', 'forward', 'right', or 'left'");
       }
-      return this.get(`/app-api/server/move/${action}`, {}, sn);
+      return this.get(`/app-api/server/move/${action}`, {"sn": sn}, sn);
     }
 
 

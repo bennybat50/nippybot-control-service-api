@@ -7,11 +7,9 @@ require("dotenv").config();
 const robotConfig = {
   alpha: {
     baseUrl: process.env.ALPHA_BASE_URL || "https://alpha-pro.csjbot.com",
-
     appId: process.env.ALPHA_APP_ID,
     appKey: process.env.ALPHA_APP_KEY,
     appSecret: process.env.ALPHA_APP_SECRET,
-
     language: process.env.ALPHA_LANGUAGE || "en-US",
 
     timeoutMs: Number(process.env.ALPHA_TIMEOUT_MS || 5000),

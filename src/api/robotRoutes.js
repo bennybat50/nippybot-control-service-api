@@ -54,6 +54,15 @@ router.get("/:sn/move/forward", async (req, res) => {
   }
 });
 
+router.get("/:sn/move/backward", async (req, res) => {
+  try {
+    const result = await robotService.controlMovement(req.params.sn, "backward");
+    res.json(result);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/:sn/move/stop", async (req, res) => {
   try {
     const result = await robotService.controlMovement(req.params.sn, "stop");
