@@ -83,4 +83,4 @@ Replace `{robotId}` with your robot's ID (e.g., `4E0025230001`).
 
 ## License
 
-ISC
+NIPPYBOT
