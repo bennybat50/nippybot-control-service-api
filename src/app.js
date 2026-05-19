@@ -4,12 +4,12 @@ const cors = require('cors');
 const app = express();
 
 
- 
+
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://botcontrol.nippybot.com/'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
+    origin: 'https://botcontrol.nippybot.com',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
